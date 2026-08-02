@@ -6,15 +6,65 @@
 
 <title>Dr. Ravindra Ashok Kulkarni | Faculty Profile</title>
 
+<!--
+  ============================================================
+  FACULTY PROFILE PAGE — Dr. Ravindra Ashok Kulkarni
+  Department of English, Willingdon College, Sangli
+  ------------------------------------------------------------
+  Readability guide for anyone editing this file later:
+    1. Colour theme lives in the :root{} CSS variables just
+       below (search "THEME VARIABLES"). Change a colour once
+       there and it updates everywhere it's used.
+    2. The page is built as a stack of <section id="..."> blocks
+       in the order they appear in the on-page nav menu.
+    3. Each major section keeps its own small <style> block
+       right above its HTML for anything section-specific
+       (grids, cards, etc.), while shared/global styles
+       (buttons, section titles, container, header/nav) live in
+       the single <style> block at the top of <head>.
+    4. Blocks added for the CAS (Career Advancement Scheme)
+       data — detailed tables, Extension Activities, expanded
+       Administrative Responsibilities — are marked with
+       "CAS DATA ADDITION" comments so they're easy to find.
+  ============================================================
+-->
+
+<!-- Google Fonts: Poppins for body text, Playfair Display for headings (adds an academic/editorial feel) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
 
+/* ============================================================
+   THEME VARIABLES
+   Deep maroon + warm gold academic palette (replaces the
+   original navy/blue theme). Every colour used across the
+   page's several <style> blocks references one of these, so
+   the whole site can be re-themed by editing this list only.
+   ============================================================ */
+:root{
+--dark:#4a1220;        /* deep maroon-black — headings, dark panels, footer */
+--primary:#a3283a;     /* rich maroon — icons, links, primary buttons, accents */
+--primary-hover:#7a1f2b; /* darker maroon — hover state for primary elements */
+--gold:#c9932c;        /* warm gold — underlines, highlights, secondary accent */
+--bg:#faf5ef;           /* warm ivory page background */
+--card-bg:#ffffff;
+--text:#333333;
+--text-soft:#5b5b5b;
+--shadow:0 8px 25px rgba(74,18,32,.10); /* maroon-tinted shadow used on cards */
+--radius:15px;
+--font-heading:'Playfair Display',serif;
+--font-body:'Poppins',sans-serif;
+}
+
+/* ============================================================
+   GLOBAL RESET & BASE TYPOGRAPHY
+   ============================================================ */
 *{
 margin:0;
 padding:0;
@@ -23,10 +73,14 @@ scroll-behavior:smooth;
 }
 
 body{
-font-family:'Poppins',sans-serif;
-background:#805533;
-color:#333;
+font-family:var(--font-body);
+background:var(--bg);
+color:var(--text);
 line-height:1.8;
+}
+
+h1,h2,h3,h4{
+font-family:var(--font-heading);
 }
 
 a{
@@ -48,7 +102,7 @@ padding:80px 0;
 text-align:center;
 font-size:2.2rem;
 font-weight:700;
-color:#805533;
+color:var(--dark);
 margin-bottom:50px;
 position:relative;
 }
@@ -57,7 +111,7 @@ position:relative;
 content:'';
 width:80px;
 height:4px;
-background:#1e88e5;
+background:linear-gradient(90deg,var(--primary),var(--gold));
 display:block;
 margin:15px auto;
 border-radius:10px;
@@ -66,7 +120,7 @@ border-radius:10px;
 .btn{
 display:inline-block;
 padding:12px 30px;
-background:#1e88e5;
+background:var(--primary);
 color:#fff;
 border-radius:30px;
 font-weight:600;
@@ -74,7 +128,7 @@ transition:.3s;
 }
 
 .btn:hover{
-background:#0d47a1;
+background:var(--primary-hover);
 transform:translateY(-3px);
 }
 
@@ -84,7 +138,7 @@ width:100%;
 top:0;
 left:0;
 background:#fff;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
+box-shadow:0 5px 15px rgba(74,18,32,.10);
 z-index:1000;
 }
 
@@ -98,11 +152,12 @@ padding:18px 0;
 .logo{
 font-size:24px;
 font-weight:700;
-color:#0d3b66;
+color:var(--dark);
+font-family:var(--font-heading);
 }
 
 .logo span{
-color:#1e88e5;
+color:var(--primary);
 }
 
 nav ul{
@@ -114,15 +169,32 @@ gap:25px;
 nav ul li a{
 font-weight:500;
 transition:.3s;
+position:relative;
+padding-bottom:4px;
+}
+
+nav ul li a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:0;
+width:0;
+height:2px;
+background:var(--gold);
+transition:width .3s;
+}
+
+nav ul li a:hover::after{
+width:100%;
 }
 
 nav ul li a:hover{
-color:#1e88e5;
+color:var(--primary);
 }
 
 .hero{
 padding-top:130px;
-background:linear-gradient(135deg,#0d3b66,#1976d2);
+background:linear-gradient(135deg,var(--dark),var(--primary));
 color:white;
 }
 
@@ -180,8 +252,8 @@ margin-top:50px;
 .info-card{
 background:white;
 padding:25px;
-border-radius:15px;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
 text-align:center;
 transition:.4s;
 }
@@ -192,13 +264,13 @@ transform:translateY(-8px);
 
 .info-card i{
 font-size:40px;
-color:#1976d2;
+color:var(--primary);
 margin-bottom:15px;
 }
 
 .info-card h4{
 margin-bottom:10px;
-color:#0d3b66;
+color:var(--dark);
 }
 
 .about-grid{
@@ -211,8 +283,8 @@ align-items:center;
 .about-box{
 background:white;
 padding:35px;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+border-radius:var(--radius);
+box-shadow:0 10px 30px rgba(74,18,32,.10);
 }
 
 .about-box p{
@@ -221,7 +293,7 @@ text-align:justify;
 }
 
 .highlight{
-color:#1976d2;
+color:var(--primary);
 font-weight:600;
 }
 
@@ -234,8 +306,8 @@ gap:25px;
 .edu-card{
 background:white;
 padding:30px;
-border-radius:15px;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
 transition:.4s;
 }
 
@@ -245,13 +317,68 @@ transform:translateY(-8px);
 
 .edu-card i{
 font-size:45px;
-color:#1976d2;
+color:var(--primary);
 margin-bottom:20px;
 }
 
 .edu-card h3{
 margin-bottom:15px;
-color:#0d3b66;
+color:var(--dark);
+}
+
+/* ============================================================
+   CAS DATA ADDITION — shared "detail table" component
+   A single reusable styled-table pattern used everywhere the
+   detailed CAS document data (qualifications, teaching record,
+   publications) is shown as a proper table instead of cards.
+   Wrapping in .table-wrap gives horizontal scroll on narrow
+   screens so the table never breaks the page layout.
+   ============================================================ */
+.table-wrap{
+overflow-x:auto;
+background:var(--card-bg);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+margin-top:30px;
+}
+
+.detail-table{
+width:100%;
+border-collapse:collapse;
+min-width:640px;
+font-size:14.5px;
+}
+
+.detail-table caption{
+text-align:left;
+font-weight:600;
+font-family:var(--font-heading);
+color:var(--dark);
+font-size:1.15rem;
+padding:20px 25px 5px;
+}
+
+.detail-table th{
+background:var(--dark);
+color:#fff;
+text-align:left;
+padding:14px 18px;
+font-weight:600;
+white-space:nowrap;
+}
+
+.detail-table td{
+padding:14px 18px;
+border-bottom:1px solid #eee2d8;
+vertical-align:top;
+}
+
+.detail-table tbody tr:last-child td{
+border-bottom:none;
+}
+
+.detail-table tbody tr:hover{
+background:#faf2ec;
 }
 
 @media(max-width:900px){
@@ -316,6 +443,7 @@ Dr.<span>RAVINDRA</span>
 <li><a href="#expertise">Expertise</a></li>
 <li><a href="#research">Research</a></li>
 <li><a href="#publications">Publications</a></li>
+<li><a href="#extension">Extension</a></li>
 <li><a href="#contact">Contact</a></li>
 
 </ul>
@@ -359,7 +487,7 @@ Know More
 
 <div class="hero-image">
 
-<img src="FacultyPhoto.jpg" alt="FacultyPhoto.jpg">
+<img src="profile.jpg" alt="Faculty Photo">
 
 </div>
 
@@ -368,12 +496,9 @@ Know More
 <div class="quick-info">
 
 <div class="info-card">
-    <i class="fas fa-user-graduate"></i>
-    <h4>Teaching Experience</h4>
-
-    <p style="color:black;font-size:20px;font-weight:bold;">
-        22+ Years
-    </p>
+<i class="fas fa-user-graduate"></i>
+<h4>Teaching Experience</h4>
+<p>22+ Years</p>
 </div>
 
 <div class="info-card">
@@ -416,7 +541,7 @@ About
 
 <p>
 
-<b>Dr. Ravindra Ashok Kulkarni</b> is an Associate Professor in the
+<b>Dr. Ravindra Ashok Kulkarni</b> is an Assistant Professor in the
 Department of English at <span class="highlight">Willingdon College,
 Sangli</span>. He has more than twenty-two years of teaching experience
 and is recognized as a Postgraduate Lecturer and Ph.D. Research Guide in
@@ -445,7 +570,7 @@ resource lectures and student mentoring.
 
 <div class="about-box">
 
-<h3 style="color:#0d3b66;margin-bottom:20px;">
+<h3 style="color:var(--dark);margin-bottom:20px;">
 Professional Highlights
 </h3>
 
@@ -523,6 +648,48 @@ Academic Qualifications
 
 </div>
 
+<!-- CAS DATA ADDITION: exact Academic Qualifications table from the CAS document -->
+<div class="table-wrap">
+<table class="detail-table">
+<caption>Academic Qualifications — Detailed Record</caption>
+<thead>
+<tr>
+<th>Sr. No.</th>
+<th>Exam Passed</th>
+<th>University</th>
+<th>Year</th>
+<th>Grade / Class</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>B.A.</td><td>Shivaji University, Kolhapur</td><td>1996</td><td>Second Class B+</td></tr>
+<tr><td>2</td><td>M.A.</td><td>Shivaji University, Kolhapur</td><td>2001</td><td>Second Class B+</td></tr>
+<tr><td>3</td><td>B.Ed.</td><td>Shivaji University, Kolhapur</td><td>1998</td><td>First Class</td></tr>
+<tr><td>4</td><td>Ph.D.</td><td>Shivaji University, Kolhapur</td><td>2010</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- CAS DATA ADDITION: exact Teaching Experience table from the CAS document -->
+<div class="table-wrap">
+<table class="detail-table">
+<caption>Teaching Experience — Detailed Record</caption>
+<thead>
+<tr>
+<th>Designation</th>
+<th>Name of the Employer</th>
+<th>Joining</th>
+<th>Leaving</th>
+<th>Experience</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Asst. Prof.</td><td>Willingdon College, Sangli</td><td>08-01-2023</td><td>Till date</td><td>12 years</td></tr>
+<tr><td>Asst. Teacher</td><td>New English School and Junior College of Science, Shirala</td><td>01-06-2003</td><td>07-01-2013</td><td>10 years</td></tr>
+</tbody>
+</table>
+</div>
+
 </div>
 
 </section>
@@ -549,14 +716,14 @@ gap:25px;
 background:#fff;
 padding:30px;
 text-align:center;
-border-radius:15px;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
 transition:.4s;
 }
 
 .expertise-card:hover{
 transform:translateY(-10px);
-background:#1976d2;
+background:var(--primary);
 color:#fff;
 }
 
@@ -566,7 +733,7 @@ color:#fff;
 
 .expertise-card i{
 font-size:45px;
-color:#1976d2;
+color:var(--primary);
 margin-bottom:20px;
 transition:.4s;
 }
@@ -587,7 +754,7 @@ position:absolute;
 left:50%;
 width:4px;
 height:100%;
-background:#1976d2;
+background:var(--primary);
 transform:translateX(-50%);
 }
 
@@ -609,8 +776,8 @@ left:50%;
 .timeline-box{
 background:white;
 padding:25px;
-border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
+border-radius:var(--radius);
+box-shadow:0 8px 20px rgba(74,18,32,.10);
 }
 
 .timeline-dot{
@@ -619,7 +786,7 @@ top:35px;
 right:-10px;
 width:20px;
 height:20px;
-background:#1976d2;
+background:var(--primary);
 border-radius:50%;
 }
 
@@ -638,13 +805,13 @@ margin-top:50px;
 background:white;
 padding:35px;
 text-align:center;
-border-radius:15px;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
 }
 
 .counter h2{
 font-size:48px;
-color:#1976d2;
+color:var(--primary);
 margin-bottom:10px;
 }
 
@@ -652,21 +819,21 @@ margin-bottom:10px;
 background:white;
 padding:40px;
 margin-top:60px;
-border-radius:15px;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
 }
 
 .project-box h3{
-color:#0d3b66;
+color:var(--dark);
 margin-bottom:20px;
 }
 
 .guide-box{
 margin-top:40px;
-background:#0d3b66;
+background:var(--dark);
 color:white;
 padding:35px;
-border-radius:15px;
+border-radius:var(--radius);
 }
 
 .guide-box h3{
@@ -956,6 +1123,43 @@ literature and interdisciplinary research.
 
 </div>
 
+<!-- CAS DATA ADDITION: Ph.D. thesis title & Research Oriented Activities from the CAS document -->
+<div class="project-box">
+
+<h3>
+Ph.D. Thesis
+</h3>
+
+<p>
+
+<b>The Novels of Irwin Shaw : An Assessment</b>
+
+</p>
+
+<p style="margin-top:20px;">
+
+Shivaji University, Kolhapur — Awarded 27/09/2010.
+
+</p>
+
+</div>
+
+<div class="guide-box">
+
+<h3>
+Research Oriented Activities
+</h3>
+
+<p>✔ Orientation Programme Completed: 1</p>
+
+<p>✔ Refresher Courses Completed: 4</p>
+
+<p>✔ Faculty Development Programmes Completed: 5</p>
+
+<p>✔ Research Students Registered for Ph.D.: 04</p>
+
+</div>
+
 </div>
 
 </section>
@@ -981,10 +1185,10 @@ gap:25px;
 .pub-card{
 background:#fff;
 padding:30px;
-border-radius:15px;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
 transition:.4s;
-border-top:5px solid #1976d2;
+border-top:5px solid var(--primary);
 }
 
 .pub-card:hover{
@@ -993,13 +1197,13 @@ transform:translateY(-8px);
 
 .pub-card i{
 font-size:42px;
-color:#1976d2;
+color:var(--primary);
 margin-bottom:20px;
 }
 
 .pub-card h3{
 margin-bottom:15px;
-color:#0d3b66;
+color:var(--dark);
 }
 
 .membership-grid{
@@ -1012,22 +1216,22 @@ margin-top:60px;
 .member-card{
 background:#ffffff;
 padding:30px;
-border-radius:15px;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
 }
 
 .member-card i{
 font-size:45px;
-color:#1976d2;
+color:var(--primary);
 margin-bottom:20px;
 }
 
 .admin-box{
 margin-top:60px;
-background:#0d3b66;
+background:var(--dark);
 color:white;
 padding:40px;
-border-radius:15px;
+border-radius:var(--radius);
 }
 
 .admin-box ul{
@@ -1049,15 +1253,15 @@ margin-top:50px;
 .lecture-card{
 background:white;
 padding:25px;
-border-radius:15px;
+border-radius:var(--radius);
 text-align:center;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+box-shadow:var(--shadow);
 transition:.4s;
 }
 
 .lecture-card:hover{
 transform:translateY(-8px);
-background:#1976d2;
+background:var(--primary);
 color:white;
 }
 
@@ -1067,7 +1271,7 @@ color:white;
 
 .lecture-card i{
 font-size:40px;
-color:#1976d2;
+color:var(--primary);
 margin-bottom:20px;
 }
 
@@ -1145,6 +1349,80 @@ Completed
 
 </div>
 
+</div>
+
+<!-- CAS DATA ADDITION: full Research Publications table from the CAS document -->
+<div class="table-wrap">
+<table class="detail-table">
+<caption>Research Publications — Full Details</caption>
+<thead>
+<tr>
+<th>S. No.</th>
+<th>Title of the Publication</th>
+<th>Co-author</th>
+<th>Journal (ISBN / ISSN)</th>
+<th>Publisher / Address</th>
+<th>Vol., Issue, Page No.</th>
+<th>Month / Year</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Code of Conduct, Duties and Responsibilities of College Students and Authorities</td>
+<td>S. R. Kumbhar</td>
+<td>ISBN: 978-81-948061-1-2-7</td>
+<td>Prarup Publications, Kolhapur (Dr. P. R. Tarlekar, Young Research Association, Kolhapur)</td>
+<td>P. 290-297</td>
+<td>2022</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Digi Fiction: A Genre of the Recent Age</td>
+<td>—</td>
+<td>Gurukul International Multidisciplinary Research Journal, e-ISSN 2394-8426, Impact Factor 6.305</td>
+<td>Gurukul International Publishing Services, Pune-17 (<a href="http://www.gurukuljournal.com/" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:underline;">gurukuljournal.com</a>)</td>
+<td>P. 24-27</td>
+<td>Dec. 2022</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Proclamation of Human Values in Robert Frost's Poetry</td>
+<td>—</td>
+<td>Sanshodhak, ISSN: 2394-5990 (UGC Listed Journal No. 21259)</td>
+<td>V. K. Rajwade Sanshodhak Mandal, Dhule, G2 Bharat 2023, INDIA</td>
+<td>Vol. 8 (Additional), pp. 61-65</td>
+<td>Dec. 2023</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Racial Discrimination in Dennis Brutus's Poem "Letters to Martha"</td>
+<td>Shubhangi Lavate</td>
+<td>Shod Disha, ISSN: 0975-735X (UGC Care Listed Journal)</td>
+<td>Hindi Sahitya Niketan, 16 Sahitya Vihar, Bijnor 246701 (UP)</td>
+<td>Jan-March, 61/8, Issue 7, pp. 102-105</td>
+<td>Jan. 2023</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Writing Skills for Students</td>
+<td>G. D. Shelake, S. R. Kumbhar</td>
+<td>The Grove, Working Papers on English Studies, ISSN: 1137-005X</td>
+<td>UGA. Universidad de Jaen</td>
+<td>Vol. 31</td>
+<td>2024</td>
+</tr>
+<tr>
+<td>6</td>
+<td>National Education Policy 2020: A Paradigm Shift in Indian Education System</td>
+<td>U. N. Pol, R. P. Kagane, G. D. Shelake, S. B. Pore</td>
+<td>The Grove, Working Papers on English Studies, ISSN: 1137-005X</td>
+<td>UGA. Universidad de Jaen</td>
+<td>Vol. 31</td>
+<td>2024</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 </div>
@@ -1239,7 +1517,7 @@ Vice Principal (UG & PG Arts Faculty)
 </li>
 
 <li>
-Associate Professor,
+Assistant Professor,
 Department of English,
 Willingdon College, Sangli
 </li>
@@ -1260,7 +1538,94 @@ Academic Mentor and Curriculum Contributor
 Resource Person for more than 10 Institutes
 </li>
 
+<!-- CAS DATA ADDITION: additional committee memberships from the CAS document -->
+<li>
+Member, Governing Body, Willingdon College, Sangli (Autonomous)
+</li>
+
+<li>
+Assistant Rector, Rajarishi Shahu Boys' Hostel, Sangli
+</li>
+
+<li>
+Secretary, Finance Committee, Willingdon College, Sangli (Autonomous)
+</li>
+
+<li>
+Member, NAAC Steering Committee
+</li>
+
+<li>
+Member, College Development Committee, Willingdon College, Sangli
+</li>
+
+<li>
+Member, Board of Studies, Department of English
+</li>
+
+<li>
+Member, Board of Studies, Department of Yogashastra
+</li>
+
+<li>
+Member, Academic Council, Willingdon College, Sangli (Autonomous)
+</li>
+
 </ul>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CAS DATA ADDITION: new Extension Activities section built entirely from the CAS document -->
+<section id="extension">
+
+<div class="container fade">
+
+<h2 class="section-title">
+Extension Activities
+</h2>
+
+<div class="lecture-grid">
+
+<div class="lecture-card">
+<i class="fas fa-language"></i>
+<h3>M.A. in Marathi</h3>
+<p style="margin-top:8px;font-size:14px;">Shivaji University, Kolhapur</p>
+</div>
+
+<div class="lecture-card">
+<i class="fas fa-spa"></i>
+<h3>Diploma in Yoga Shikshak</h3>
+<p style="margin-top:8px;font-size:14px;">YCMOU, Nashik</p>
+</div>
+
+<div class="lecture-card">
+<i class="fas fa-om"></i>
+<h3>Philosophy and Arts</h3>
+</div>
+
+<div class="lecture-card">
+<i class="fas fa-theater-masks"></i>
+<h3>Folk Literature</h3>
+</div>
+
+<div class="lecture-card">
+<i class="fas fa-heart"></i>
+<h3>Human Values</h3>
+</div>
+
+<div class="lecture-card">
+<i class="fas fa-comments"></i>
+<h3>Communication Skills</h3>
+</div>
+
+<div class="lecture-card">
+<i class="fas fa-users"></i>
+<h3>Management and Relations</h3>
+</div>
 
 </div>
 
@@ -1347,12 +1712,12 @@ gap:30px;
 .contact-card{
 background:#fff;
 padding:35px;
-border-radius:15px;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
 }
 
 .contact-card h3{
-color:#0d3b66;
+color:var(--dark);
 margin-bottom:25px;
 }
 
@@ -1365,7 +1730,7 @@ margin-bottom:20px;
 .contact-item i{
 width:55px;
 height:55px;
-background:#1976d2;
+background:var(--primary);
 color:#fff;
 display:flex;
 justify-content:center;
@@ -1377,7 +1742,7 @@ font-size:22px;
 
 .contact-item h4{
 margin-bottom:5px;
-color:#0d3b66;
+color:var(--dark);
 }
 
 .contact-item p{
@@ -1396,13 +1761,13 @@ margin-top:40px;
 background:#fff;
 padding:25px;
 text-align:center;
-border-radius:15px;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
 transition:.4s;
 }
 
 .interest-card:hover{
-background:#1976d2;
+background:var(--primary);
 color:#fff;
 transform:translateY(-8px);
 }
@@ -1414,12 +1779,12 @@ color:#fff;
 .interest-card i{
 font-size:40px;
 margin-bottom:15px;
-color:#1976d2;
+color:var(--primary);
 }
 
 footer{
 margin-top:80px;
-background:#0d3b66;
+background:var(--dark);
 color:white;
 text-align:center;
 padding:40px 20px;
@@ -1444,7 +1809,7 @@ align-items:center;
 width:45px;
 height:45px;
 background:white;
-color:#1976d2;
+color:var(--primary);
 border-radius:50%;
 margin:8px;
 font-size:20px;
@@ -1452,7 +1817,7 @@ transition:.4s;
 }
 
 .social-icons a:hover{
-background:#1976d2;
+background:var(--primary);
 color:white;
 transform:translateY(-5px);
 }
@@ -1463,7 +1828,7 @@ bottom:30px;
 right:30px;
 width:55px;
 height:55px;
-background:#1976d2;
+background:var(--primary);
 color:white;
 display:flex;
 justify-content:center;
@@ -1471,7 +1836,7 @@ align-items:center;
 border-radius:50%;
 font-size:22px;
 cursor:pointer;
-box-shadow:0 8px 20px rgba(0,0,0,.25);
+box-shadow:0 8px 20px rgba(74,18,32,.28);
 display:none;
 z-index:999;
 }
@@ -1588,7 +1953,7 @@ Dr. Ravindra Ashok Kulkarni
 </h3>
 
 <p>
-Associate Professor | Department of English
+Assistant Professor | Department of English
 </p>
 
 <p>
@@ -1634,6 +1999,19 @@ All Rights Reserved.
 </div>
 
 <script>
+
+/* ============================================================
+   PAGE BEHAVIOUR — three independent, small pieces of JS:
+   1. Fade Animation   — reveals each .fade section as it
+      scrolls into view (uses IntersectionObserver).
+   2. Animated Counters — counts .count numbers up from 0 to
+      their data-target value on page load (used in the
+      Research Highlights stat cards).
+   3. Back-to-Top Button — shows/hides a floating button after
+      scrolling 400px, and smooth-scrolls to the top on click.
+   None of this logic was changed by the redesign — only the
+   visual theme (CSS) and the extra CAS-data content above it.
+   ============================================================ */
 
 // Fade Animation
 
