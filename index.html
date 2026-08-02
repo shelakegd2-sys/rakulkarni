@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#4a1220">
+<meta name="format-detection" content="telephone=no">
 
 <title>Dr. Ravindra Ashok Kulkarni | Faculty Profile</title>
 
@@ -70,6 +72,12 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 scroll-behavior:smooth;
+-webkit-tap-highlight-color:rgba(163,40,58,.2);
+}
+
+html,body{
+overflow-x:hidden;
+width:100%;
 }
 
 body{
@@ -77,6 +85,13 @@ font-family:var(--font-body);
 background:var(--bg);
 color:var(--text);
 line-height:1.8;
+-webkit-text-size-adjust:100%;
+text-size-adjust:100%;
+}
+
+img{
+max-width:100%;
+height:auto;
 }
 
 h1,h2,h3,h4{
@@ -235,7 +250,9 @@ min-width:300px;
 
 .hero-image img{
 width:300px;
+max-width:70vw;
 height:300px;
+max-height:70vw;
 border-radius:50%;
 border:8px solid rgba(255,255,255,.2);
 object-fit:cover;
@@ -408,6 +425,78 @@ font-size:2.3rem;
 
 }
 
+@media(max-width:480px){
+
+.hero-text,
+.hero-image{
+min-width:100%;
+}
+
+section{
+padding:55px 0;
+}
+
+.section-title{
+font-size:1.7rem;
+margin-bottom:35px;
+}
+
+.hero-text h1{
+font-size:1.9rem;
+}
+
+.hero-text h3{
+font-size:1.05rem;
+}
+
+nav{
+padding:14px 0;
+}
+
+nav ul{
+gap:14px 18px;
+}
+
+nav ul li a{
+font-size:14px;
+}
+
+.info-card,
+.edu-card,
+.expertise-card,
+.pub-card,
+.member-card,
+.lecture-card,
+.contact-card,
+.about-box,
+.project-box,
+.guide-box,
+.admin-box{
+padding:22px;
+}
+
+.back-top{
+width:46px;
+height:46px;
+bottom:18px;
+right:18px;
+font-size:18px;
+}
+
+.quick-info,
+.edu-grid,
+.expertise-grid,
+.counter-grid,
+.pub-grid,
+.membership-grid,
+.lecture-grid,
+.contact-grid,
+.interest-grid{
+grid-template-columns:1fr !important;
+}
+
+}
+
 .fade{
 opacity:0;
 transform:translateY(40px);
@@ -487,7 +576,7 @@ Know More
 
 <div class="hero-image">
 
-<img src="FacultyPhoto.jpg" alt="Faculty Photo">
+<img src="profile.jpg" alt="Faculty Photo">
 
 </div>
 
@@ -541,7 +630,7 @@ About
 
 <p>
 
-<b>Dr. Ravindra Ashok Kulkarni</b> is an Associate Professor in the
+<b>Dr. Ravindra Ashok Kulkarni</b> is an Assistant Professor in the
 Department of English at <span class="highlight">Willingdon College,
 Sangli</span>. He has more than twenty-two years of teaching experience
 and is recognized as a Postgraduate Lecturer and Ph.D. Research Guide in
@@ -658,14 +747,14 @@ Academic Qualifications
 <th>Exam Passed</th>
 <th>University</th>
 <th>Year</th>
-
+<th>Grade / Class</th>
 </tr>
 </thead>
 <tbody>
-<tr><td>1</td><td>B.A.</td><td>Shivaji University, Kolhapur</td><td>1996</td></tr>
-<tr><td>2</td><td>M.A.</td><td>Shivaji University, Kolhapur</td><td>2001</td></tr>
-<tr><td>3</td><td>B.Ed.</td><td>Shivaji University, Kolhapur</td><td>1998</td></tr>
-<tr><td>4</td><td>Ph.D.</td><td>Shivaji University, Kolhapur</td><td>2010</td></tr>
+<tr><td>1</td><td>B.A.</td><td>Shivaji University, Kolhapur</td><td>1996</td><td>Second Class B+</td></tr>
+<tr><td>2</td><td>M.A.</td><td>Shivaji University, Kolhapur</td><td>2001</td><td>Second Class B+</td></tr>
+<tr><td>3</td><td>B.Ed.</td><td>Shivaji University, Kolhapur</td><td>1998</td><td>First Class</td></tr>
+<tr><td>4</td><td>Ph.D.</td><td>Shivaji University, Kolhapur</td><td>2010</td><td>—</td></tr>
 </tbody>
 </table>
 </div>
@@ -1517,7 +1606,7 @@ Vice Principal (UG & PG Arts Faculty)
 </li>
 
 <li>
-Associate Professor,
+Assistant Professor,
 Department of English,
 Willingdon College, Sangli
 </li>
@@ -1953,7 +2042,7 @@ Dr. Ravindra Ashok Kulkarni
 </h3>
 
 <p>
-Associate Professor | Department of English
+Assistant Professor | Department of English
 </p>
 
 <p>
